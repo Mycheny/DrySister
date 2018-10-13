@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity  {
             GetData gd = new GetData();
             try {
                 byte[] data = gd.getImage(PIC_URL);
+                String result = rotating(data);
                 bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
                 String res = gd.getHtml(HTML_URL);
                 //构建数据
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity  {
      * which is packaged with this application.
      */
     public native String stringFromJNI();
+    public native String rotating(byte[] data);
 
     // Used to load the 'native-lib' library on application startup.
     static {

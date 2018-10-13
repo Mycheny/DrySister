@@ -12,3 +12,16 @@ Java_com_coderpig_drysister_MainActivity_stringFromJNI(
     std::string hello = ch;
     return env->NewStringUTF(hello.c_str());
 }
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_coderpig_drysister_MainActivity_rotating(JNIEnv *env, jobject instance, jbyteArray data_) {
+    jbyte *data = env->GetByteArrayElements(data_, NULL);
+
+    // TODO
+
+    env->ReleaseByteArrayElements(data_, data, 0);
+    jbyte a = data[0];
+    jbyte b = data[1];
+    jbyte c = data[2];
+    return env->NewStringUTF("image");
+}
